@@ -4,6 +4,7 @@ using CRUD.FluentNhibernate.Model.Repositorios;
 using CRUD.FluentNhibernate.Model.Entidades;
 using CRUD.FluentNhibernate.Model.Test.Helper;
 using System.Linq;
+using System.Diagnostics;
 
 namespace CRUD.FluentNhibernate.Model.Test
 {
@@ -81,6 +82,65 @@ namespace CRUD.FluentNhibernate.Model.Test
             pessoa = Repositorio.Find(pessoa.Id);
 
             Assert.IsNull(pessoa);
+        }
+
+        [TestMethod]
+        public void Adicionar_telefone_e_email_a_um_registro_qualquer()
+        {
+            PessoaFisica pessoa = Repositorio.Query().FirstOrDefault();
+
+            pessoa.Telefones.Add(new Telefone() { 
+                Descricao = "Celular",
+                Numero = "(11) 95843-8124",
+                Ramal = "",
+                DataCriacao = DateTime.Now,
+                DataAlteracao = DateTime.Now,
+                Status = Status.Ativo
+            });
+            pessoa.Telefones.Add(new Telefone()
+            {
+                Descricao = "Trabalho",
+                Numero = "(11) 7569-8124",
+                Ramal = "485",
+                DataCriacao = DateTime.Now,
+                DataAlteracao = DateTime.Now,
+                Status = Status.Ativo
+            });
+
+            pessoa.Emails.Add(new Email()
+            {
+                Descricao = "Trabalho",
+                Endereco = "eu@eu.com.br",
+                DataCriacao = DateTime.Now,
+                DataAlteracao = DateTime.Now,
+                Status = Status.Ativo
+            });
+            pessoa.Emails.Add(new Email()
+            {
+                Descricao = "Pessoal",
+                Endereco = "eu@eumesmo.com.br",
+                DataCriacao = DateTime.Now,
+                DataAlteracao = DateTime.Now,
+                Status = Status.Ativo
+            });
+
+
+            Repositorio.Edit(pessoa);
+
+            TestDebug.MostraDados(pessoa);
+            Debug.WriteLine(" /// - Telefone ///////");
+            foreach(Telefone item in pessoa.Telefones)
+            {
+                TestDebug.MostraDados(item);
+                Debug.WriteLine(" ------------- ");
+            }
+            Debug.WriteLine(" /// - E-mails ///////");
+            foreach (Email item in pessoa.Emails)
+            {
+                TestDebug.MostraDados(item);
+                Debug.WriteLine(" ------------- ");
+            }
+
         }
     }
 }

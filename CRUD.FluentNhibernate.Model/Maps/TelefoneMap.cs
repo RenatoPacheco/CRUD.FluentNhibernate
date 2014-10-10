@@ -7,27 +7,27 @@ using System.Text;
 
 namespace CRUD.FluentNhibernate.Model.Maps
 {
-    public class PessoaMap : ClassMap<Pessoa>
+    public class TelefoneMap : ClassMap<Telefone>
     {
-        public PessoaMap()
+        public TelefoneMap()
         {
-            Table("tbl_Pessoa");
+            Table("tbl_Telefone");
 
             Id(x => x.Id)
                 .GeneratedBy
                 .Identity();
 
-            Map(x => x.Nome)
+            Map(x => x.Descricao)
                .Not.Nullable()
                .Length(255);
 
-            Map(x => x.Login)
+            Map(x => x.Numero)
                .Not.Nullable()
-               .Length(255);
+               .Length(50);
 
-            Map(x => x.Senha)
+            Map(x => x.Ramal)
                .Not.Nullable()
-               .Length(255);
+               .Length(50);
             
             Map(x => x.DataCriacao)
                .Not.Nullable();
@@ -38,15 +38,6 @@ namespace CRUD.FluentNhibernate.Model.Maps
             Map(x => x.Status)
                .Not.Nullable()
                .CustomType<int>();
-
-            // Posso usar o KeyColumn para indicar o nome da colun que relaiciona as tabelas
-            // KeyColumn ("Nome da coluna aqui")
-
-            HasMany(x => x.Emails)
-                .Cascade.All();
-
-            HasMany(x => x.Telefones)
-                .Cascade.All();
         }
     }
 }

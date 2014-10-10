@@ -25,10 +25,13 @@ namespace CRUD.FluentNhibernate.Model.Entidades
 
         public virtual IList<Telefone> Telefones { get; set; }
 
+        public virtual IList<Perfil> Perfis { get; set; }
+
         public Pessoa()
         {
             this.Emails = new List<Email>();
             this.Telefones = new List<Telefone>();
+            this.Perfis = new List<Perfil>();
         }
     }
 }

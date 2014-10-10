@@ -20,5 +20,15 @@ namespace CRUD.FluentNhibernate.Model.Entidades
         public virtual DateTime DataAlteracao { get; set; }
 
         public virtual Status Status { get; set; }
+
+        public virtual IList<Email> Emails { get; set; }
+
+        public virtual IList<Telefone> Telefones { get; set; }
+
+        public Pessoa()
+        {
+            this.Emails = new List<Email>();
+            this.Telefones = new List<Telefone>();
+        }
     }
 }

@@ -52,12 +52,16 @@
     <Compile Include="Entidades\PessoaFisica.cs" />
     <Compile Include="Entidades\PessoaJuridica.cs" />
     <Compile Include="Entidades\Status.cs" />
+    <Compile Include="Infras\Connection.cs" />
+    <Compile Include="Infras\Repository.cs" />
     <Compile Include="Interfaces\IConnection.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Maps\PessoaFisicaMap.cs" />
     <Compile Include="Maps\PessoaJuridicaMap.cs" />
     <Compile Include="Maps\PessoaMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositorios\PessoaFisicaRep.cs" />
+    <Compile Include="Repositorios\PessoaJuridicaRep.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

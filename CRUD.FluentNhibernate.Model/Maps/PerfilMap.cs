@@ -7,11 +7,11 @@ using System.Text;
 
 namespace CRUD.FluentNhibernate.Model.Maps
 {
-    public class PessoaMap : ClassMap<Pessoa>
+    public class PerfilMap : ClassMap<Perfil>
     {
-        public PessoaMap()
+        public PerfilMap()
         {
-            Table("tbl_Pessoa");
+            Table("tbl_Perfil");
 
             Id(x => x.Id)
                 .GeneratedBy
@@ -21,11 +21,7 @@ namespace CRUD.FluentNhibernate.Model.Maps
                .Not.Nullable()
                .Length(255);
 
-            Map(x => x.Login)
-               .Not.Nullable()
-               .Length(255);
-
-            Map(x => x.Senha)
+            Map(x => x.Descricao)
                .Not.Nullable()
                .Length(255);
             
@@ -38,21 +34,12 @@ namespace CRUD.FluentNhibernate.Model.Maps
             Map(x => x.Status)
                .Not.Nullable()
                .CustomType<int>();
-
-            // Posso usar o KeyColumn para indicar o nome da colun que relaiciona as tabelas
-            // KeyColumn ("Nome da coluna aqui")
-
-            HasMany(x => x.Emails)
-                .Cascade.All();
-
-            HasMany(x => x.Telefones)
-                .Cascade.All();
-
+            
             // Posso o nome das colunas mas neste caso tem de informar nos dois sentidos.
-            // ParentKeyColumn("Nome para esta tabela ex: Id_Pessoa")
-            // ChildKeyColumn("Nome para a outra tabela ex: Id_Perfil")
+            // ParentKeyColumn("Nome para esta tabela ex: Id_Perfil")
+            // ChildKeyColumn("Nome para a outra tabela ex: Id_Pessoa")
 
-            HasManyToMany(x => x.Perfis)
+            HasManyToMany(x => x.Pessoas)
                 .Table("tbl_PerfilPessoa");
         }
     }

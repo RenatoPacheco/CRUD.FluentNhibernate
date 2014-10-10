@@ -1,5 +1,5 @@
-﻿using CRUD.FluentNhibernate.CSharp.Model.Interfaces;
-using CRUD.FluentNhibernate.CSharp.Model.Maps;
+﻿using CRUD.FluentNhibernate.Model.Interfaces;
+using CRUD.FluentNhibernate.Model.Maps;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using NHibernate;
@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CRUD.FluentNhibernate.CSharp.Model.Infras
+namespace CRUD.FluentNhibernate.Model.Infras
 {
     public class Connection : IConnection
     {

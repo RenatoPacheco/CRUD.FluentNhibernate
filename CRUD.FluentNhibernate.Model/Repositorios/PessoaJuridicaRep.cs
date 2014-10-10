@@ -1,11 +1,11 @@
-﻿using CRUD.FluentNhibernate.CSharp.Model.Entidades;
-using CRUD.FluentNhibernate.CSharp.Model.Infras;
+﻿using CRUD.FluentNhibernate.Model.Entidades;
+using CRUD.FluentNhibernate.Model.Infras;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CRUD.FluentNhibernate.CSharp.Model.Repositorios
+namespace CRUD.FluentNhibernate.Model.Repositorios
 {
     public class PessoaJuridicaRep : Repository<PessoaJuridica>
     {

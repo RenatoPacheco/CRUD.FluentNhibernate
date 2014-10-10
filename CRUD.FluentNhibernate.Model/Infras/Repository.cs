@@ -1,11 +1,11 @@
-﻿using CRUD.FluentNhibernate.CSharp.Model.Interfaces;
+﻿using CRUD.FluentNhibernate.Model.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 
-namespace CRUD.FluentNhibernate.CSharp.Model.Infras
+namespace CRUD.FluentNhibernate.Model.Infras
 {
     public abstract class Repository<T> : IRepository<T> where T : class, new()
     {

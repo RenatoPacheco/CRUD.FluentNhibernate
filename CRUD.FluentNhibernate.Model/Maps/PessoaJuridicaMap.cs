@@ -1,11 +1,11 @@
-﻿using CRUD.FluentNhibernate.CSharp.Model.Entidades;
+﻿using CRUD.FluentNhibernate.Model.Entidades;
 using FluentNHibernate.Mapping;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CRUD.FluentNhibernate.CSharp.Model.Maps
+namespace CRUD.FluentNhibernate.Model.Maps
 {
     public class PessoaJuridicaMap : SubclassMap<PessoaJuridica>
     {

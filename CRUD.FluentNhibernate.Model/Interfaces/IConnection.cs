@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CRUD.FluentNhibernate.CSharp.Model.Interfaces
+namespace CRUD.FluentNhibernate.Model.Interfaces
 {
     public interface IConnection : IDisposable
     {

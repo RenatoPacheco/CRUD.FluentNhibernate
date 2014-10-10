@@ -4,7 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 
-namespace CRUD.FluentNhibernate.CSharp.Model.Interfaces
+namespace CRUD.FluentNhibernate.Model.Interfaces
 {
     public interface IRepository<T> : IDisposable where T : class,new()
     {

@@ -54,6 +54,9 @@
     <Compile Include="Entidades\Status.cs" />
     <Compile Include="Interfaces\IConnection.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="Maps\PessoaFisicaMap.cs" />
+    <Compile Include="Maps\PessoaJuridicaMap.cs" />
+    <Compile Include="Maps\PessoaMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

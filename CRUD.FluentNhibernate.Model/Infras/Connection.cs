@@ -1,4 +1,5 @@
-﻿using CRUD.FluentNhibernate.Model.Interfaces;
+﻿using CRUD.FluentNhibernate.Model.CustomSqlDialect.MsSql2008;
+using CRUD.FluentNhibernate.Model.Interfaces;
 using CRUD.FluentNhibernate.Model.Maps;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
@@ -64,7 +65,9 @@ namespace CRUD.FluentNhibernate.Model.Infras
         private void Init()
         {
             _Configuration = Fluently.Configure()
-                .Database(MsSqlConfiguration.MsSql2008.ConnectionString(
+                .Database(MsSqlConfiguration.MsSql2008
+                .Dialect<CollateLatinGeneral>()
+                .ConnectionString(
                             x => x.FromConnectionStringWithKey("CrudBasico")).ShowSql())
                 .Mappings(x => x.FluentMappings.AddFromAssemblyOf<PessoaMap>());
 

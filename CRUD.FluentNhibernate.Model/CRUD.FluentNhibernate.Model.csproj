@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entidades\Agenda.cs" />
     <Compile Include="Entidades\Email.cs" />
     <Compile Include="Entidades\Perfil.cs" />
     <Compile Include="Entidades\Pessoa.cs" />
@@ -60,6 +61,7 @@
     <Compile Include="Interfaces\IConnection.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Maps\PerfilMap.cs" />
+    <Compile Include="Maps\AgendaMap.cs" />
     <Compile Include="Maps\TelefoneMap.cs" />
     <Compile Include="Maps\PessoaFisicaMap.cs" />
     <Compile Include="Maps\PessoaJuridicaMap.cs" />

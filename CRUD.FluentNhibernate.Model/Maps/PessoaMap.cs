@@ -48,6 +48,9 @@ namespace CRUD.FluentNhibernate.Model.Maps
             HasMany(x => x.Telefones)
                 .Cascade.All();
 
+            HasMany(x => x.Agendas)
+                .Cascade.All();
+
             // Posso o nome das colunas mas neste caso tem de informar nos dois sentidos.
             // ParentKeyColumn("Nome para esta tabela ex: Id_Pessoa")
             // ChildKeyColumn("Nome para a outra tabela ex: Id_Perfil")

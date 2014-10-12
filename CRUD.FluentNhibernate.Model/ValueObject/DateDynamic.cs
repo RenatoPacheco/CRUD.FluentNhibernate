@@ -23,6 +23,10 @@ namespace CRUD.FluentNhibernate.Model.ValueObject
 
         private DateTime Convert(object value)
         {
+            return Convert(value, DateTime.Now);
+        }
+        private DateTime Convert(object value, DateTime now)
+        {
             DateTime resultado = new DateTime();
             string valor = null;
             string[] valores = null;
@@ -56,15 +60,15 @@ namespace CRUD.FluentNhibernate.Model.ValueObject
                         {
                             case 0:
                                 diffDia = int.Parse(valores[i]);
-                                valores[i] = data.Day.ToString();
+                                valores[i] = now.Day.ToString();
                                 break;
                             case 1:
                                 diffMes = int.Parse(valores[i]);
-                                valores[i] = data.Month.ToString();
+                                valores[i] = now.Month.ToString();
                                 break;
                             case 2:
                                 diffAno = int.Parse(valores[i]);
-                                valores[i] = data.Year.ToString();
+                                valores[i] = now.Year.ToString();
                                 break;
                         }
                     }
@@ -85,10 +89,15 @@ namespace CRUD.FluentNhibernate.Model.ValueObject
         {
             return this.Value;
         }
-        
+
         public DateTime ToDateTime()
         {
-            return Convert(this.Value);
+            return Convert(this.Value, DateTime.Now);
+        }
+
+        public DateTime ToDateTime(DateTime now)
+        {
+            return Convert(this.Value, now);
         }
 
         public static DateDynamic Parse(string value)

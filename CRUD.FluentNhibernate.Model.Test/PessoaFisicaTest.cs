@@ -5,6 +5,9 @@ using CRUD.FluentNhibernate.Model.Entidades;
 using CRUD.FluentNhibernate.Model.Test.Helper;
 using System.Linq;
 using System.Diagnostics;
+using System.Collections.Generic;
+using NHibernate;
+using System.Text;
 
 namespace CRUD.FluentNhibernate.Model.Test
 {
@@ -139,6 +142,70 @@ namespace CRUD.FluentNhibernate.Model.Test
             {
                 TestDebug.MostraDados(item);
                 Debug.WriteLine(" ------------- ");
+            }
+
+        }
+
+        [TestMethod]
+        public void Registrar_uma_agenda_e_buscar_independente_da_acentuacao()
+        {
+            IList<PessoaFisica> pessoas = new List<PessoaFisica>();
+
+            pessoas.Add(new PessoaFisica()
+            {
+                Nome = "Nome com acentuação",
+                Login = "renatopacheco",
+                Senha = "7dui0xCx",
+                CPF = "000.111.222-33",
+                Status = Status.Ativo,
+                DataCriacao = DateTime.Now,
+                DataAlteracao = DateTime.Now
+            });
+
+            pessoas.Add(new PessoaFisica()
+            {
+                Nome = "Nome sem acentuacao",
+                Login = "renatopacheco",
+                Senha = "7dui0xCx",
+                CPF = "000.111.222-33",
+                Status = Status.Ativo,
+                DataCriacao = DateTime.Now,
+                DataAlteracao = DateTime.Now
+            });
+
+            pessoas.Add(new PessoaFisica()
+            {
+                Nome = "Qualquer outro nome",
+                Login = "renatopacheco",
+                Senha = "7dui0xCx",
+                CPF = "000.111.222-33",
+                Status = Status.Ativo,
+                DataCriacao = DateTime.Now,
+                DataAlteracao = DateTime.Now
+            });
+
+
+            Repositorio.Add(pessoas);
+
+            IQuery query;
+            StringBuilder sql = new StringBuilder();
+
+            sql.Append(@" SELECT pesFis ");
+            sql.Append(@" FROM PessoaFisica pesFis ");
+            sql.Append(@" WHERE pesFis.Nome LIKE CollateLatinGeneral(:texto) ");
+
+            query = Repositorio.Connection.Session.CreateQuery(sql.ToString());
+            query.SetParameter("texto", string.Format("%{0}%", "acentuação"));
+
+            IList<PessoaFisica> lista = query.List<PessoaFisica>();
+
+            Debug.WriteLine("\n Palavra chave com acentuação \n");
+
+            foreach (PessoaFisica item in lista)
+            {
+                Debug.WriteLine("--- Registro --------------\n");
+                TestDebug.MostraDados(item);
+                Debug.WriteLine("---------------------------\n");
             }
 
         }

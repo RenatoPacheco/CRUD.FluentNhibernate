@@ -5,6 +5,10 @@ using CRUD.FluentNhibernate.Model.Entidades;
 using System.Linq;
 using System.Diagnostics;
 using CRUD.FluentNhibernate.Model.ValueObject;
+using System.Text;
+using NHibernate;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace CRUD.FluentNhibernate.Model.Test
 {

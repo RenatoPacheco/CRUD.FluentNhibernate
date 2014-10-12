@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entidades\Agenda.cs" />
     <Compile Include="Entidades\Email.cs" />
     <Compile Include="Entidades\Perfil.cs" />
     <Compile Include="Entidades\Pessoa.cs" />
@@ -60,6 +61,7 @@
     <Compile Include="Interfaces\IConnection.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Maps\PerfilMap.cs" />
+    <Compile Include="Maps\AgendaMap.cs" />
     <Compile Include="Maps\TelefoneMap.cs" />
     <Compile Include="Maps\PessoaFisicaMap.cs" />
     <Compile Include="Maps\PessoaJuridicaMap.cs" />
@@ -69,10 +71,13 @@
     <Compile Include="Repositorios\PessoaFisicaRep.cs" />
     <Compile Include="Repositorios\PerfilRep.cs" />
     <Compile Include="Repositorios\PessoaJuridicaRep.cs" />
+    <Compile Include="UserTypes\StringAsDateDynamic.cs" />
+    <Compile Include="ValueObject\DateDynamic.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

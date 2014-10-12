@@ -69,6 +69,7 @@
     <Compile Include="PerfilTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PessoaFisicaTest.cs" />
+    <Compile Include="AgendaTest.cs" />
     <Compile Include="_CriarEstruturaTest.cs" />
   </ItemGroup>
   <ItemGroup>

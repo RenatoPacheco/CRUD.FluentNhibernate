@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomSqlDialect\MsSql2008\CollateLatinGeneral.cs" />
     <Compile Include="Entidades\Agenda.cs" />
     <Compile Include="Entidades\Email.cs" />
     <Compile Include="Entidades\Perfil.cs" />
